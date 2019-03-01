@@ -1,0 +1,4 @@
+rootProject.name = 'gubee'
+include 'backend'
+include 'frontend'
+

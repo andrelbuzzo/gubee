@@ -1,0 +1,119 @@
+<!DOCTYPE html> <!-- index.html -->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Bis2Bis - Teste Java FullStack</title>
+
+    <link rel="icon" href="images/bis2bis-80x80.png" sizes="32x32">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+        <div class="cover-container">
+
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <h3 class="masthead-brand">Gubee - Produtos (Filtrar)</h3>
+                </div>
+            </div>
+
+            <div class="inner cover">
+                <form>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <p class="font-weight-bold">Mercado alvo:</p>
+                                <div id="radio-group"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <p class="font-weight-bold">Tecnologias utilizadas no produto:</p>
+                                <div id="checkbox-group"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-sm btn-success" id="btnSearch">
+                        <i class="fas fa-search"></i>
+                        <span>Filtrar</span>
+
+                        <span class="spinner-border spinner-border-sm hidden" role="status" aria-hidden="true"></span>
+                        <span class="sr-only">Loading...</span>
+                    </button>
+
+                    <button type="button" class="btn btn-sm btn-secondary" id="btnClear">
+                        <i class="fas fa-ban"></i>
+                        <span>Limpar filtros</span>
+
+                        <span class="spinner-border spinner-border-sm hidden" role="status" aria-hidden="true"></span>
+                        <span class="sr-only">Loading...</span>
+                    </button>
+                </form>
+
+                <hr />
+
+                <div class="table-responsive">
+                    <table id="table" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th class="w-25">Produto</th>
+                            <th class="w-25">Descrição</th>
+                            <th class="w-25">Mercado alvo</th>
+                            <th class="w-25">Tecnologias utilizadas no produto</th>
+                        </tr>
+                        </thead>
+                        <tbody id="table_tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>
+                        Teste desenvolvido por
+                        <a href="mailto:deh.metalcore@gmail.com" target="_blank">André Buzzo</a>
+                    </p>
+
+                    <div class="social-networks">
+                        <a href="https://www.facebook.com/andrebuzzo89" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="https://github.com/andrelbuzzo" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+                        <a href="https://www.linkedin.com/in/andr%C3%A9-buzzo-140b5617" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="js/lib/kotlin.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+
+<script>
+    function loading( element ){
+        if( element ){
+            $(element).find('.spinner-border').removeClass('hidden');
+            $('.spinner-border.text-success').removeClass('hidden');
+        } else {
+            setTimeout(function (){
+                $('.spinner-border').addClass('hidden');
+            }, 500);
+        }
+    }
+</script>
+
+</body>
+</html>
