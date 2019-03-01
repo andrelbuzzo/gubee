@@ -1,24 +1,13 @@
+import com.beust.klaxon.Klaxon
 import io.github.rybalkinsd.kohttp.dsl.httpGet
 import io.kotlintest.*
-import io.kotlintest.matchers.startWith
 import io.kotlintest.specs.StringSpec
-import io.kotlintest.specs.Test
-import io.ktor.http.Url
 import okhttp3.Response
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.net.HttpURLConnection
 
 class MainUnitTest : StringSpec(){
     init {
-        /*"length should return size of string" {
-            "hello".length shouldBe  5
-        }
-        "startsWith should test for a prefix" {
-            "world" should  startWith("wor")
-        }*/
 
-        "test calling api" {
+        "call: /api/products" {
             var api = "/api/products"
             var params = "targetMarket=&stack="
 
@@ -28,11 +17,80 @@ class MainUnitTest : StringSpec(){
                 path = "$api/$params"
             }
 
-            println( "-------" )
-            println( response )
-            println( response.code() )
+            val responseBody = Klaxon().toJsonString( response.body()!!.string() ).replace("\\r", "")
+
+            var jsonString = """[
+  {
+    "productName": "Gubee Integrador",
+    "description": "Ferramenta de integração para marketplaces",
+    "targetMarket": [
+      "Ecommerce",
+      "ERP",
+      "Lojistas que não desejam possuir ecommerce"
+    ],
+    "stack": [
+      "Java 10",
+      "Kotlin",
+      "Kafka",
+      "Event Stream",
+      "Redis",
+      "MongoDB"
+    ]
+  },
+  {
+    "productName": "Gubee Fretes",
+    "description": "Ferramenta para gestão e calculo de fretes",
+    "targetMarket": [
+      "Ecommerce",
+      "ERP",
+      "Loja fisica"
+    ],
+    "stack": [
+      "Java",
+      "NodeJS",
+      "MongoDB"
+    ]
+  },
+  {
+    "productName": "Gubee AntiFraude",
+    "description": "Ferramenta especialistas em detecção e prevenção à fraude",
+    "targetMarket": [
+      "Ecommerce",
+      "Telecom",
+      "Venda direta",
+      "Mobile First",
+      "Digital Onboarding"
+    ],
+    "stack": [
+      "Big Data Analytics",
+      "Hadoop",
+      "Kafka",
+      "Pig",
+      "Cassandra",
+      "Oracle"
+    ]
+  },
+  {
+    "productName": "Gubee Pagamentos",
+    "description": "Ferramenta de auxílio a pagamentos",
+    "targetMarket": [
+      "Ecommerce",
+      "Venda direta",
+      "Mobile First"
+    ],
+    "stack": [
+      "Machine Learning",
+      "MySql",
+      "Java Oracle"
+    ]
+  }
+]"""
+
+            val expectedResponse = Klaxon().toJsonString( jsonString )
 
             response.code() shouldBe 200
+            responseBody shouldBe expectedResponse
         }
+
     }
 }

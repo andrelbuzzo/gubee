@@ -32,8 +32,9 @@ dependencies {
     compile "io.ktor:ktor-server-netty:$ktor_version"
 
     testImplementation 'io.kotlintest:kotlintest-runner-junit5:3.2.1'
-//    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
     compile 'io.github.rybalkinsd:kohttp:0.7.1'
+
+    implementation 'com.beust:klaxon:5.0.1'
 }
 
 compileKotlin { kotlinOptions.jvmTarget = "1.8" }
