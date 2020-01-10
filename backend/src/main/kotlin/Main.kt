@@ -12,12 +12,15 @@ import java.io.File
 /**
  * Main function called when initialized
  * */
+const val JSON_FILEPATH = "json/gubee-teste.json"
+
 fun main(args: Array<String>) {
+    val json = readFile(JSON_FILEPATH)
     embeddedServer(Netty, 8080) {
         routing {
-            get("/api/products/targetMarket={targetMarket}&stack={stack}") {
+            get("/api/products/targetMarket={targetMarket?}&stack={stack?}") {
                 call.response.header("Access-Control-Allow-Origin", "*")
-                call.respondText( readFile( "json/gubee-teste.json" ), ContentType.Application.Json )
+                call.respondText(json, ContentType.Application.Json)
             }
         }
     }.start(wait = true)
@@ -26,16 +29,16 @@ fun main(args: Array<String>) {
 /**
  * Utility function to read the JSON file
  * */
-fun readFile( filepath: String ): String {
+fun readFile(filepath: String): String {
     var inputString = String()
     try {
-        val bufferedReader: BufferedReader = File( ClassLoader.getSystemResource( filepath ).file ).bufferedReader()
+        val bufferedReader: BufferedReader = File(ClassLoader.getSystemResource(filepath).file).bufferedReader()
         inputString = bufferedReader.use { it.readText() }
-    } catch (e:Exception){
+    } catch (e: Throwable) {
         println(e)
     } finally {
         return inputString
     }
 }
 
-//data class Entry(val message: String)
+data class Entry(val message: String)

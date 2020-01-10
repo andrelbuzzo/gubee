@@ -50,8 +50,9 @@ var app = function (_, Kotlin) {
     return function (tm) {
       var tmp$;
       var temp = Kotlin.isType(tmp$ = tm, HTMLInputElement) ? tmp$ : throwCCE();
-      if (temp.checked)
+      if (temp.checked) {
         closure$checkedTM.v = temp.value;
+      }
       return Unit;
     };
   }
@@ -59,8 +60,9 @@ var app = function (_, Kotlin) {
     return function (s) {
       var tmp$;
       var ipt = Kotlin.isType(tmp$ = s, HTMLInputElement) ? tmp$ : throwCCE();
-      if (ipt.checked)
+      if (ipt.checked) {
         closure$checkedStacks.v.add_11rb$(ipt.value);
+      }
       return Unit;
     };
   }
@@ -127,7 +129,8 @@ var app = function (_, Kotlin) {
     sort(targetMarketList);
     sort(stackList);
     var radioGroup = document.getElementById('radio-group');
-    var checkboxGroup = document.getElementById('checkbox-group');
+    var checkboxGroup1 = document.getElementById('checkbox-group1');
+    var checkboxGroup2 = document.getElementById('checkbox-group2');
     var tmp$, tmp$_0;
     var index = 0;
     tmp$ = targetMarketList.iterator();
@@ -142,7 +145,13 @@ var app = function (_, Kotlin) {
     while (tmp$_1.hasNext()) {
       var item_0 = tmp$_1.next();
       var index_2 = checkIndexOverflow((tmp$_0_0 = index_1, index_1 = tmp$_0_0 + 1 | 0, tmp$_0_0));
-      checkboxGroup != null ? (checkboxGroup.innerHTML = (checkboxGroup != null ? checkboxGroup.innerHTML : null) + ('\n' + "            <div class='custom-control custom-checkbox'>" + '\n' + "                <input type='checkbox' class='custom-control-input' id='iptStack_" + index_2 + "' name='iptStack' value='" + item_0 + "' />" + '\n' + '                <label for=' + '"' + 'iptStack_' + index_2 + '"' + " class='custom-control-label'>" + item_0 + '<\/label>' + '\n' + '            <\/div>' + '\n' + '        ')) : null;
+      var element = '\n' + "            <div class='custom-control custom-checkbox'>" + '\n' + "                <input type='checkbox' class='custom-control-input' id='iptStack_" + index_2 + "' name='iptStack' value='" + item_0 + "' />" + '\n' + '                <label for=' + '"' + 'iptStack_' + index_2 + '"' + " class='custom-control-label'>" + item_0 + '<\/label>' + '\n' + '            <\/div>' + '\n' + '        ';
+      if (index_2 <= 7) {
+        checkboxGroup1 != null ? (checkboxGroup1.innerHTML = (checkboxGroup1 != null ? checkboxGroup1.innerHTML : null) + element) : null;
+      }
+       else {
+        checkboxGroup2 != null ? (checkboxGroup2.innerHTML = (checkboxGroup2 != null ? checkboxGroup2.innerHTML : null) + element) : null;
+      }
     }
   }
   function makeTable(objArray) {

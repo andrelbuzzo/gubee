@@ -2,9 +2,9 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Bis2Bis - Teste Java FullStack</title>
+    <title>Gubee - Teste FullStack Java</title>
 
-    <link rel="icon" href="images/bis2bis-80x80.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/gubee-favicon.png" sizes="32x32">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -17,11 +17,16 @@
     <div class="site-wrapper-inner">
         <div class="cover-container">
 
-            <div class="masthead clearfix">
-                <div class="inner">
-                    <h3 class="masthead-brand">Gubee - Produtos (Filtrar)</h3>
+            <div class="masthead clearfix mb-0">
+                <div class="inner pb-0">
+                    <h3 class="masthead-brand mt-5 float-right">Filtrar Produtos</h3>
+                    <div class="img-fluid">
+                        <img src="images/logotipo.png" alt="Logotipo Gubee" />
+                    </div>
                 </div>
             </div>
+
+            <hr />
 
             <div class="inner cover">
                 <form>
@@ -35,8 +40,16 @@
 
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <p class="font-weight-bold">Tecnologias utilizadas no produto:</p>
-                                <div id="checkbox-group"></div>
+                                <p class="font-weight-bold">Tecnologias utilizadas:</p>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div id="checkbox-group1"></div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div id="checkbox-group2"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -67,7 +80,7 @@
                             <th class="w-25">Produto</th>
                             <th class="w-25">Descrição</th>
                             <th class="w-25">Mercado alvo</th>
-                            <th class="w-25">Tecnologias utilizadas no produto</th>
+                            <th class="w-25">Tecnologias utilizadas</th>
                         </tr>
                         </thead>
                         <tbody id="table_tbody">
@@ -77,7 +90,7 @@
             </div>
 
             <div class="mastfoot">
-                <div class="inner">
+                <div class="inner pt-0">
                     <p>
                         Teste desenvolvido por
                         <a href="mailto:deh.metalcore@gmail.com" target="_blank">André Buzzo</a>
