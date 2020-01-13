@@ -72,7 +72,7 @@ var app = function (_, Kotlin) {
       if (closure$init === true) {
         var text = closure$req.responseText;
         var objArray = JSON.parse(text);
-        makeTable(objArray);
+        buildTable(objArray);
         makeFilters();
         addAll(productsArray, objArray);
       }
@@ -107,7 +107,7 @@ var app = function (_, Kotlin) {
             }
           }
         }
-        makeTable(productsToShow);
+        buildTable(productsToShow);
         loading(null);
       }
     };
@@ -118,7 +118,7 @@ var app = function (_, Kotlin) {
     targetMarket != null ? (forEach(targetMarket, fetch$lambda(checkedTM)), Unit) : null;
     stack != null ? (forEach(stack, fetch$lambda_0(checkedStacks)), Unit) : null;
     var url = sanitizeUrl(checkedTM.v, checkedStacks.v);
-    println(url);
+    println('URL invoked: ' + url);
     var req = new XMLHttpRequest();
     req.onloadend = fetch$lambda_1(init, req, checkedTM, checkedStacks);
     req.open('GET', url, true);
@@ -154,7 +154,7 @@ var app = function (_, Kotlin) {
       }
     }
   }
-  function makeTable(objArray) {
+  function buildTable(objArray) {
     var tableTbody = document.getElementById('table_tbody');
     tableTbody != null ? (tableTbody.innerHTML = '') : null;
     var tmp$;
@@ -240,7 +240,7 @@ var app = function (_, Kotlin) {
   _.main_kand9s$ = main;
   _.fetch_h9kbm8$ = fetch;
   _.makeFilters = makeFilters;
-  _.makeTable_xsyh3m$ = makeTable;
+  _.buildTable_xsyh3m$ = buildTable;
   _.removeChecked_oyxktw$ = removeChecked;
   _.sanitizeUrl_6rkr74$ = sanitizeUrl;
   _.forEach_k4xucj$ = forEach;

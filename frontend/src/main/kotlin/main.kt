@@ -11,7 +11,7 @@ val stackList: MutableList<String> = ArrayList()
 var productsToShow: Array<Json> = emptyArray()
 
 /**
- * Main method that is called when 'index.html' is requested
+ * Main method called when 'index.html' is requested
  * */
 fun main(args: Array<String>) {
     window.onload = {
@@ -58,7 +58,7 @@ fun fetch(init: Boolean?, targetMarket: NodeList?, stack: NodeList?): Unit {
     }
 
     val url = sanitizeUrl(checkedTM, checkedStacks)
-    println(url) // TODO: remove after tests
+    println("URL invoked: $url") // TODO: remove after tests
 
     val req = XMLHttpRequest()
     req.onloadend = fun(event: Event) {
@@ -66,7 +66,7 @@ fun fetch(init: Boolean?, targetMarket: NodeList?, stack: NodeList?): Unit {
             val text = req.responseText
             val objArray = JSON.parse<Array<Json>>(text)
             // build result table
-            makeTable(objArray)
+            buildTable(objArray)
             // build filters
             makeFilters()
             productsArray += objArray
@@ -96,7 +96,7 @@ fun fetch(init: Boolean?, targetMarket: NodeList?, stack: NodeList?): Unit {
                 }
             }
 
-            makeTable(productsToShow)
+            buildTable(productsToShow)
             loading(null)
         }
     }
@@ -145,7 +145,7 @@ fun makeFilters() {
 /**
  * Build the HTML table's elements based on all elements of readed JSON
  * */
-fun makeTable(objArray: Array<Json>) {
+fun buildTable(objArray: Array<Json>) {
     val tableTbody = document.getElementById("table_tbody")
     // remove all elements
     tableTbody?.innerHTML = ""

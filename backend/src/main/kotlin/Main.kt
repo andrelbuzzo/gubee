@@ -40,5 +40,3 @@ fun readFile(filepath: String): String {
         return inputString
     }
 }
-
-data class Entry(val message: String)
